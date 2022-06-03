@@ -1,38 +1,57 @@
 <template>
-  <div
-    class="header slds-var-p-around_medium slds-text-align_center slds-text-title_caps"
-  >
-    Score : {score}
-  </div>
-  <div class="game-container">
-    <div class="game-play">
-      <template for:each={gameBlocks} for:item="block">
-        <div class={block.class} data-reference={block.id} key={block.id}>
-          &nbsp;
-        </div>
-      </template>
+    <div
+        class="header slds-var-p-around_medium slds-text-align_center slds-text-title_caps"
+    >
+        Score : {score}
     </div>
-    <template if:true={showOverlay}>
-      <div class="overlay">
-        <div class="overlay-content">
-          <template if:true={gameOver}>
-            <div class="slds-text-heading_large">Game Over!</div>
-            <br />
-            <button class="slds-button slds-button_brand" onclick={resetGame}>
-              Play Again
-            </button>
-          </template>
-          <template if:false={gameOver}>
-            <div class="slds-text-heading_medium">
-              Use Arrow Keys to move the snake
-            </div>
-            <br />
-            <button class="slds-button slds-button_brand" onclick={startGame}>
-              Start Game
-            </button>
-          </template>
+    <div class="game-container">
+        <div class="game-play">
+            <template for:each={gameBlocks} for:item="block">
+                <div
+                    class={block.class}
+                    data-reference={block.id}
+                    key={block.id}
+                >
+                    &nbsp;
+                </div>
+            </template>
         </div>
-      </div>
-    </template>
-  </div>
+        <div class="slds-hide_small game-controls">
+            <button onclick={moveUp}>UP</button><br /><br />
+            <button onclick={moveLeft}>LEFT</button>
+            <button onclick={moveRight}>RIGHT</button><br /><br />
+            <button onclick={moveDown}>DOWN</button>
+        </div>
+        <template if:true={showOverlay}>
+            <div class="overlay">
+                <div class="overlay-content">
+                    <template if:true={gameOver}>
+                        <div class="slds-text-heading_large">Game Over!</div>
+                        <br />
+                        <button
+                            class="slds-button slds-button_brand"
+                            onclick={resetGame}
+                        >
+                            Play Again
+                        </button>
+                    </template>
+                    <template if:false={gameOver}>
+                        <div class="slds-text-heading_medium">
+                            Use Arrow Keys to move the snake
+                        </div>
+                        <br />
+                        <button
+                            class="slds-button slds-button_brand"
+                            onclick={startGame}
+                        >
+                            Start Game
+                        </button>
+                    </template>
+                </div>
+            </div>
+        </template>
+        <!-- <audio autoplay>
+            <source src="../../../resources/gametheme.mp3" type="audio/mpeg" />
+        </audio> -->
+    </div>
 </template>
