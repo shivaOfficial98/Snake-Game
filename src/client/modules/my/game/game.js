@@ -168,7 +168,6 @@ export default class Game extends LightningElement {
     exitGame() {
         this.showOverlay = true;
         this.gameOver = true;
-        this.myMusic.stop();
         clearInterval(this.intervalObjt);
     }
     renderedCallback() {
