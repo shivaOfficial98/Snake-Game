@@ -159,7 +159,7 @@ export default class Game extends LightningElement {
         this.score = 0;
         this.renderGameBlocks();
         this.generateFood();
-        clearInterval(this.intervalObj);
+        clearInterval(this.intervalObjt);
     }
     resetGame() {
         this.resetGameMetrics();
